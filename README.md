@@ -9,6 +9,8 @@
   <b>We need your help to translate this README and <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> to your native language</b>
 </p>
 
+This is a mod requested by my friend for scam baiting. It allows you to enter with a persistent password, and features a small rebrand ("Rust" replaced with "Client") hopefully Google SEO won't pick that up haha
+
 Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Reddit](https://www.reddit.com/r/rustdesk)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I04VU09)
